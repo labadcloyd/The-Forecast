@@ -1,0 +1,111 @@
+html {
+    font-size: 16px;
+    font-family: Helvetica, sans-serif;
+    margin: 0;
+    
+}
+body {
+    margin: 0;
+    background-color: #ebfffe;
+}
+
+/* THIS IS FOR THE HEADER PART */
+
+.header {
+    background-color: #2b7a78;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    justify-content: space-around;
+    align-items: center;
+}
+.title{
+    font-size: 1.5rem;
+    padding: 10px;
+    font-weight: bold;
+    
+}
+.searchbar {
+    border: none;
+    border-radius: none;
+    width: 400px;
+    padding: 10px;
+    background-color: #3aafa9;
+    
+}
+.searchbar::placeholder{
+    color: white;
+}
+.searchbar:focus{
+    outline: none;
+}
+.search {
+    border: none;
+    border-radius: none;
+    width: 100px;
+    padding: 10px;
+    background-color: #17252a;
+    color: white;
+    cursor: pointer;
+}
+
+/* THIS IS FOR THE BODY PART */
+.uppercontainer{
+    width: 80%;
+    margin: auto;
+}
+.maincontainer {
+    margin: auto;
+    color:black;
+    display: grid;
+    width: 100%;
+    overflow-x: visible;
+    grid-template-columns: repeat(7, minmax(160px,1fr));
+    gap:1rem;
+}
+#cityName{
+    margin: 20px 0px 0px 0px;
+    padding:20px 20px 10px 20px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: normal;
+}
+#temp{
+    font-size: 3rem;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+}
+#description{
+    font-size: 1.8rem;
+    text-align: center;
+    margin:0;
+    padding: 10px;
+}
+
+
+
+
+
+
+.container{
+    background-color: #ccebe9;
+    padding: 20px;
+    cursor: pointer;
+}
+.date{
+    font-size: 1.3rem;
+    margin: 0;
+}
+.temp{
+    font-size: 2rem;
+    margin: 0;
+}
+.description{
+    font-size: 0.9rem;
+    margin: 0;
+}
+.weatherimg{
+    margin: 0;
+}
