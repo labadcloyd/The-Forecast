@@ -32,7 +32,7 @@ body {
     width: 400px;
     padding: 10px;
     background-color:#2b7a78 ;
-    
+    color: white;
 }
 .searchbar::placeholder{
     color: white;
@@ -52,8 +52,6 @@ body {
 .search:hover{
     background-color: #00635e;
 }
-
-
 
 /* THIS IS FOR THE BODY PART */
 

@@ -9,6 +9,9 @@ require('dotenv').config();
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('public'))
 
+let apiKeyLocationIQ = process.env.API_KEY_LOCATIONIQ;
+let apiKeyWeather = process.env.API_KEY_WEATHER;
+
 app.listen(3000, ()=>{
   console.log("server is running on port 3000")
 })
@@ -19,23 +22,38 @@ app.get('/', (req,res)=>{
 
 app.post('/', (req,res)=>{
   
-  let apiKeyLocationIQ = process.env.API_KEY_LOCATIONIQ;
+
   let cityLocationIQ = req.body.citySearch;
   let urlLocationIQ = "https://api.locationiq.com/v1/search.php?format=JSON&key="+apiKeyLocationIQ+"&q="+cityLocationIQ+"&limit=1";
   https.get(urlLocationIQ, function(response){
-    console.log(response.statusCode)
-    response.on("data",function(data){
+    return response.on('data',function(data){
       let locationIQ = JSON.parse(data);
       var lat= locationIQ[0].lat;
       var lon= locationIQ[0].lon;
-      console.log(lat, lon)
+      var cityName = locationIQ[0].display_name;
+      console.log(lat,lon,cityName)
+      return(lat,lon,cityName);
     })
-  })
-
-  let urlWeather = 'https://api.openweathermap.org/data/2.5/onecall?&lat='+lat+'&lon='+lon+'&exclude=alerts,minutely&units=metric&appid='+API_KEY_WEATHER;
-  https.get(urlWeather, function(response){
     
   })
+  
+  // let urlWeather = 'https://api.openweathermap.org/data/2.5/onecall?&lat='+lat+'&lon='+lon+'&exclude=alerts,minutely&units=metric&appid='+apiKeyWeather;
+  // https.get(urlWeather, function(response){
+  //   response.on("data",function(data){
+  //     let weatherData = JSON.parse(data);
+  //     console.log(weatherData);
+  //     // let currentDescription = weatherData.current.weather[0].description;
+  //     // let currentTemp = weatherData.current.temp;
+  //     // let currentIcon = weatherData.current.weather[0].icon;
+
+  //     // res.write(
+  //     //   document.querySelector('#cityName').innerText = cityName, 
+  //     //   document.querySelector('#temp').innerText = currentTemp,
+  //     //   document.querySelector('#imgMain').src = 'http://openweathermap.org/img/wn/'+currentIcon+'.png',
+        
+  //     //   )
+  //   })
+  // })
   
 })
 
