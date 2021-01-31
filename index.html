@@ -11,60 +11,65 @@
 <body>
     <div class="header">
         <span class="title">Weather Forecast App</span>
-        
-        <form action="/" method="POST" >
-            <input name="citySearch" class="searchbar" placeholder="Enter The Location">
-            <button type="submit" class="search">Search</button>
-        </form>
-        
+        <div class="searchContainer">
+            <form action="/" method="POST" >
+                <input name="citySearch" class="searchbar" placeholder="Enter The Location">
+                <button type="submit" class="search">Search</button>
+            </form>
+        </div>     
     </div>
     <div class="body">
-        <h1 id="cityName">City Name</h1>
-        <h2 id="temp"><img src="http://openweathermap.org/img/wn/10d@2x.png" id="imgMain">Temp</h2>
-        <p id="description">Description</p>
+        <div class="titleContainer">
+            <h1 id="cityName">City Name</h1>
+            <h2 id="temp">Temp
+                <div class="imgMainContainer"><img src="http://openweathermap.org/img/wn/10d@2x.png" id="imgMain"></div>
+            </h2>
+            <p id="description">Description</p>
+        </div>
+        
         
         <div class="uppercontainer">
             <h3>Daily</h3>
             <div class="maincontainer">
                 <div class="container" id="0container">
                     <p class="date">date</p>
-                    <img src="http://openweathermap.org/img/wn/10d@2x.png" class="weatherimg">
+                    <div class="weatherimgContainer"><img src="http://openweathermap.org/img/wn/10d@2x.png" class="weatherimg"></div>
                     <p class="temp">temp</p>
                     <p class="description">description</p>
                 </div>
                 <div class="container" id="1container">
                     <p class="date">date</p>
-                    <img src="http://openweathermap.org/img/wn/10d@2x.png" class="weatherimg">
+                    <div class="weatherimgContainer"><img src="http://openweathermap.org/img/wn/10d@2x.png" class="weatherimg"></div>
                     <p class="temp">temp</p>
                     <p class="description">description</p>
                 </div>
                 <div class="container" id="2container">
                     <p class="date">date</p>
-                    <img src="http://openweathermap.org/img/wn/10d@2x.png" class="weatherimg">
+                    <div class="weatherimgContainer"><img src="http://openweathermap.org/img/wn/10d@2x.png" class="weatherimg"></div>
                     <p class="temp">temp</p>
                     <p class="description">description</p>
                 </div>
                 <div class="container" id="3container">
                     <p class="date">date</p>
-                    <img src="http://openweathermap.org/img/wn/10d@2x.png" class="weatherimg">
+                    <div class="weatherimgContainer"><img src="http://openweathermap.org/img/wn/10d@2x.png" class="weatherimg"></div>
                     <p class="temp">temp</p>
                     <p class="description">description</p>
                 </div>
                 <div class="container" id="4container">
                     <p class="date">date</p>
-                    <img src="http://openweathermap.org/img/wn/10d@2x.png" class="weatherimg">
+                    <div class="weatherimgContainer"><img src="http://openweathermap.org/img/wn/10d@2x.png" class="weatherimg"></div>
                     <p class="temp">temp</p>
                     <p class="description">description</p>
                 </div>
                 <div class="container" id="5container">
                     <p class="date">date</p>
-                    <img src="http://openweathermap.org/img/wn/10d@2x.png" class="weatherimg">
+                    <div class="weatherimgContainer"><img src="http://openweathermap.org/img/wn/10d@2x.png" class="weatherimg"></div>
                     <p class="temp">temp</p>
                     <p class="description">description</p>
                 </div>
                 <div class="container" id="6container">
                     <p class="date">date</p>
-                    <img src="http://openweathermap.org/img/wn/10d@2x.png" class="weatherimg">
+                    <div class="weatherimgContainer"><img src="http://openweathermap.org/img/wn/10d@2x.png" class="weatherimg"></div>
                     <p class="temp">temp</p>
                     <p class="description">description</p>
                 </div>

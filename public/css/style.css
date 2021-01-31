@@ -2,11 +2,11 @@ html {
     font-size: 16px;
     font-family: Helvetica, sans-serif;
     margin: 0;
-    
+    min-width: 500px;
 }
 body {
     margin: 0;
-    background-color: #def2f1;
+    background-color: #e1ecec;
 }
 
 /* THIS IS FOR THE HEADER PART */
@@ -24,28 +24,32 @@ body {
     font-size: 1.5rem;
     padding: 10px;
     font-weight: bold;
-    color: #17252a;
+    color: white;
+}
+.searchContainer{
+    width: 50%;
+    text-align: right;
+
 }
 .searchbar {
     border: none;
-    border-radius: none;
-    width: 400px;
+    width: 80%;
     padding: 10px;
-    background-color:#2b7a78 ;
-    color: white;
+    background-color:#ffffff ;
+    color: black;
+    margin-right: -10px;
 }
 .searchbar::placeholder{
-    color: white;
+    color: black;
 }
 .searchbar:focus{
     outline: none;
 }
 .search {
     border: none;
-    border-radius: none;
     width: 100px;
     padding: 10px;
-    background-color: #17252a;
+    background-color: #2b7a78;
     color: white;
     cursor: pointer;
 }
@@ -53,21 +57,27 @@ body {
     background-color: #00635e;
 }
 
-/* THIS IS FOR THE BODY PART */
 
-
-.uppercontainer{
+/* THIS IS FOR THE TITLE PART */
+.titleContainer{
+    background-color: #ffffff;
+    -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1); 
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
     width: 80%;
-    margin: auto;
+    margin: 25px auto;
+    padding: 10px 30px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
 }
-.maincontainer {
-    margin: auto;
-    color:white;
-    display: grid;
-    width: 100%;
-    overflow-x: visible;
-    grid-template-columns: repeat(7, minmax(160px,1fr));
-    gap:1rem;
+.imgMainContainer{
+    height:100px;
+    width:100px;
+    background-color:  #bddfdd;
+    margin-left: 20px;
+    border-radius: 50%;
 }
 #cityName{
     margin: 20px 0px 0px 0px;
@@ -94,32 +104,57 @@ body {
     color: #17252a;
 }
 
+/* THIS IS FOR THE MAIN PART */
 
+.maincontainer {
+    margin: auto;
+    color:#17252a;
+    display: grid;
+    width: 100%;
+    overflow-x: visible;
+    grid-template-columns: repeat(7, minmax(160px,1fr));
+    gap:1rem;
+}
+
+.uppercontainer{
+    width: 80%;
+    margin: auto;
+    padding: 10px 30px 30px 30px;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1); 
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+}
 .container{
-    background-color:#3aafa9 ;
+    background-color:#ffffff;
     padding: 20px;
-    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1); 
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
 }
-.container:hover{
-    background-color:#30948f;
-}
-.container:active{
-    background-color: #30948f;
-}
+
 .date{
     font-size: 1.3rem;
-    margin: 0px 0px -15px 0px;
+    margin: 0px 0px 0px 0px;
 }
 .temp{
     font-size: 2rem;
-    margin: -15px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
 }
 .description{
     font-size: 0.9rem;
     margin: 0;
 }
+.weatherimgContainer{
+    margin: 10px 0px 10px 0px;
+    background-color:  #bddfdd;
+    height: 70px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
 .weatherimg{
-    margin: 0;
+    width: 100%;
 }
 h3{
     color: black;

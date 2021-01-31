@@ -21,21 +21,24 @@ app.get('/', (req,res)=>{
 })
 
 app.post('/', (req,res)=>{
-  
+  let lat = '';
+  let lon = '';
+  let cityName = '';
 
   let cityLocationIQ = req.body.citySearch;
   let urlLocationIQ = "https://api.locationiq.com/v1/search.php?format=JSON&key="+apiKeyLocationIQ+"&q="+cityLocationIQ+"&limit=1";
   https.get(urlLocationIQ, function(response){
-    return response.on('data',function(data){
+    response.on('data',function(data){
       let locationIQ = JSON.parse(data);
-      var lat= locationIQ[0].lat;
-      var lon= locationIQ[0].lon;
-      var cityName = locationIQ[0].display_name;
+      lat= locationIQ[0].lat;
+      lon= locationIQ[0].lon;
+      cityName = locationIQ[0].display_name;
       console.log(lat,lon,cityName)
-      return(lat,lon,cityName);
+    
     })
     
   })
+  console.log(lat,lon,cityName)
   
   // let urlWeather = 'https://api.openweathermap.org/data/2.5/onecall?&lat='+lat+'&lon='+lon+'&exclude=alerts,minutely&units=metric&appid='+apiKeyWeather;
   // https.get(urlWeather, function(response){
