@@ -34,7 +34,7 @@ app.post('/', (req,res)=>{
       lon= locationIQ[0].lon;
       cityName = locationIQ[0].display_name;
       console.log(lat,lon,cityName)
-    
+      
     })
     
   })

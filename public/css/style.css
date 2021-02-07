@@ -71,12 +71,20 @@ form{
 }
 
 
-/* THIS IS FOR THE TITLE PART */
+/* THIS IS FOR THE MAIN PART */
+.wrapper{
+    width: 100%;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    padding: 0px 20px 0px 20px;
+}
 .titleContainer{
     background-color: #ffffff;
     -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.05); 
     box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.05);
-    width: 80%;
+    width: 100%;
     margin: 25px auto;
     padding: 10px 30px 30px 30px;
     display: flex;
@@ -85,6 +93,7 @@ form{
     align-items: flex-start;
     border-radius: 10px;
     max-width: 1300px;
+    box-sizing: border-box;
 }
 .imgMainContainer{
     height:100px;
@@ -118,8 +127,6 @@ form{
     color: #17252a;
 }
 
-/* THIS IS FOR THE MAIN PART */
-
 .maincontainer {
     margin: auto;
     color:#17252a;
@@ -131,14 +138,9 @@ form{
 }
 
 .uppercontainer{
-    width: 80%;
+    width: 100%;
     max-width: 1300px;
     margin: auto;
-    padding: 10px 30px 30px 30px;
-    background-color: #ffffff;
-    -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.05); 
-    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.05);
-    border-radius: 10px;
 }
 .container{
     background-color:#ffffff;
@@ -148,9 +150,11 @@ form{
     border-radius: 10px;
 }
 .container:hover{
-    background-color: #e2f0f0;
+    background-color: #e1ffff;
     box-shadow: none;
     cursor: pointer;
+    -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.09); 
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.09);
 }
 .date{
     font-size: 1.3rem;
