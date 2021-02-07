@@ -3,22 +3,30 @@ html {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     min-width: 650px;
+    box-sizing: border-box;
 }
 body {
     margin: 0;
     background-color: #e1ecec;
+    box-sizing: border-box;
 }
 
 /* THIS IS FOR THE HEADER PART */
 
 .header {
     background-color: #3aafa9;
+}
+.header-container{
+    margin-left: auto;
+    margin-right: auto;
     color: white;
     display: flex;
     flex-direction: row;
     padding: 15px;
-    justify-content:space-evenly;
+    justify-content: space-between;
     align-items: center;
+    max-width: 1300px;
+    box-sizing: border-box;
 }
 .title{
     font-size: 1.5rem;
@@ -27,22 +35,22 @@ body {
     color: white;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 0.1rem;
+    min-width: 321px;
 }
 .searchContainer{
-    width: 40%;
+    max-width: 700px;
+    width: 100%;
 }
-form{
-    max-width: 500px;
-    text-align: right;
+#search-form{
+    width: 100%;
     display: flex;
     flex-direction: row;
     
 }
 .searchbar {
-    
+    position: relative;
     border: none;
-    width: 80%;
-    max-width: 400px;
+    width: 100%;
     padding: 10px;
     background-color:#ffffff ;
     color: black;
@@ -78,14 +86,14 @@ form{
     margin-left: auto;
     margin-right: auto;
     box-sizing: border-box;
-    padding: 0px 20px 0px 20px;
+    padding: 20px;
 }
 .titleContainer{
     background-color: #ffffff;
     -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.05); 
     box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.05);
     width: 100%;
-    margin: 25px auto;
+    margin: 20px;
     padding: 10px 30px 30px 30px;
     display: flex;
     flex-direction: column;
@@ -141,6 +149,9 @@ form{
     width: 100%;
     max-width: 1300px;
     margin: auto;
+    overflow-x: scroll;
+    padding: 20px;
+    box-sizing: border-box;
 }
 .container{
     background-color:#ffffff;
