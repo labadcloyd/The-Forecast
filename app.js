@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const https = require('https');
 const { static, response } = require('express');
+const { rejects } = require('assert');
 require('dotenv').config();
 
 
@@ -22,44 +23,67 @@ app.get('/', (req,res)=>{
 })
 
 app.post('/', (req,res)=>{
+  let cityLocationIQ = req.body.citySearch;
+  let urlLocationIQ = "https://api.locationiq.com/v1/search.php?format=JSON&key="+apiKeyLocationIQ+"&q="+cityLocationIQ+"&limit=1";
   let lat = '';
   let lon = '';
   let cityName = '';
 
-  let cityLocationIQ = req.body.citySearch;
-  let urlLocationIQ = "https://api.locationiq.com/v1/search.php?format=JSON&key="+apiKeyLocationIQ+"&q="+cityLocationIQ+"&limit=1";
-  https.get(urlLocationIQ, function(response){
-    response.on('data',function(data){
-      let locationIQ = JSON.parse(data);
-      lat= locationIQ[0].lat;
-      lon= locationIQ[0].lon;
-      cityName = locationIQ[0].display_name;
-      console.log(lat,lon,cityName)
-      
+  function getWeather(lat,lon){
+    return new Promise((resolve, reject)=>{
+      let urlWeather = 'https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&exclude=alerts,minutely&units=metric&appid='+apiKeyWeather;
+      https.get(urlWeather, (response)=>{
+        let str = '';
+        response.on("data",(chunk)=>{
+          str += chunk
+        });
+        response.on('end', ()=>{
+          let weatherData = JSON.parse(str);
+          resolve(weatherData)
+        });
+        response.on('error', (err)=>{
+          reject(err);
+        });
+      })
     })
+  }
+  function getLatLon(){
+    return new Promise((resolve, reject)=>{
     
-  })
-  console.log(lat,lon,cityName)
-  
-  // let urlWeather = 'https://api.openweathermap.org/data/2.5/onecall?&lat='+lat+'&lon='+lon+'&exclude=alerts,minutely&units=metric&appid='+apiKeyWeather;
-  // https.get(urlWeather, function(response){
-  //   response.on("data",function(data){
-  //     let weatherData = JSON.parse(data);
-  //     console.log(weatherData);
-  //     // let currentDescription = weatherData.current.weather[0].description;
-  //     // let currentTemp = weatherData.current.temp;
-  //     // let currentIcon = weatherData.current.weather[0].icon;
+      https.get(urlLocationIQ, (response)=>{
+        response.on('data', (chunk) => {
+          resolve(JSON.parse(chunk));
+        });
+        response.on('end', (chunk)=>{
+          
+        })
+        response.on("error", (err) => {
+            reject(err);
+        });
+      })
+    })
+  }
 
-  //     // res.write(
-  //     //   document.querySelector('#cityName').innerText = cityName, 
-  //     //   document.querySelector('#temp').innerText = currentTemp,
-  //     //   document.querySelector('#imgMain').src = 'http://openweathermap.org/img/wn/'+currentIcon+'.png',
-        
-  //     //   )
-  //   })
-  // })
+  getLatLon().then(location=>{
+    let lat = location[0].lat;
+    let lon = location[0].lon;
+    let cityName = location[0].display_name;
+    console.log(lat, lon, cityName)
+    
+    getWeather(lat,lon).then(weatherData=>{
+      console.log(weatherData)
+    })
+  })
   
+  
+
+
 })
+
+  
+ 
+  
+  
 
 function timeConverter(UNIX_timestamp){
     let a = new Date(UNIX_timestamp * 1000);
@@ -73,3 +97,4 @@ function timeConverter(UNIX_timestamp){
     let time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
     return time;
   }
+      
