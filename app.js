@@ -8,6 +8,7 @@ require('dotenv').config();
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('public'))
+app.set('view engine', 'ejs');
 
 let apiKeyLocationIQ = process.env.API_KEY_LOCATIONIQ;
 let apiKeyWeather = process.env.API_KEY_WEATHER;
