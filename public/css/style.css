@@ -52,12 +52,11 @@ body {
     position: relative;
     border: none;
     width: 100%;
-    padding: 10px;
+    padding: 10px 10px 10px 20px;
     background-color:#ffffff ;
     color: black;
-    margin-right: -10px;
-    border-top-left-radius: 7px;
-    border-bottom-left-radius: 7px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 .searchbar::placeholder{
     color: black;
@@ -68,12 +67,15 @@ body {
 .search {
     border: none;
     width: 100px;
-    padding: 10px;
+    padding: 5px;
     background-color: #2b7a78;
     color: white;
     cursor: pointer;
-    border-top-right-radius: 7px;
-    border-bottom-right-radius: 7px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .search:hover{
     background-color: #00635e;
@@ -135,16 +137,21 @@ body {
     overflow-x: auto;
     display: grid;
     grid-template-columns: repeat(7, minmax(140px,1fr));
-    gap:1.8rem;
-    padding: 0px 0px 10px 0px;
+    gap: 0rem;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
 }
 .daily-weather-container{
-    background-color: #ffffff;
     border-radius: 10px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: start;
+}
+.daily-weather-container:hover{
+    background-color: #e2fdfb;
+    cursor: pointer;
 }
 .daily-date{
     font-size: 1.1rem;
