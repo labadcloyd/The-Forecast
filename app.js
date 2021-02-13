@@ -72,7 +72,8 @@ app.post('/', (req,res)=>{
     console.log(lat, lon, cityName)
     
     getWeather(lat,lon).then(weatherData=>{
-      console.log(weatherData)
+      console.log(timeConverter(weatherData.current.dt))
+      console.log(weatherData.current)
     })
 
   })
@@ -90,13 +91,14 @@ app.post('/', (req,res)=>{
 function timeConverter(UNIX_timestamp){
     let a = new Date(UNIX_timestamp * 1000);
     let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    let days = ['Sunday','Monday','Teusday','Wednesday','Thursday','Friday','Saturday'];
     let year = a.getFullYear();
     let month = months[a.getMonth()];
     let date = a.getDate();
     let hour = a.getHours();
     let min = a.getMinutes();
-    let sec = a.getSeconds();
-    let time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+    let dayNum = a.getDay();
+    let time = days[dayNum] +' '+ month + ' ' + dat + ' ' + hour + ':' + min ;
     return time;
   }
       
