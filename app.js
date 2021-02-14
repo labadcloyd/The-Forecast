@@ -19,10 +19,69 @@ app.listen(3000, ()=>{
 })
 
 app.get('/', (req,res)=>{
-  res.render('index.ejs')
+  let cityLocationIQ = 'chicago';
+  let urlLocationIQ = "https://api.locationiq.com/v1/search.php?format=JSON&key="+apiKeyLocationIQ+"&q="+cityLocationIQ+"&limit=1";
+
+  // This is for getting the weather API 
+  function getWeather(lat,lon){
+    return new Promise((resolve, reject)=>{
+      let urlWeather = 'https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&exclude=alerts,minutely,hourly&units=metric&appid='+apiKeyWeather;
+      https.get(urlWeather, (response)=>{
+        let str = '';
+        response.on("data",(chunk)=>{
+          str += chunk
+        });
+        response.on('end', ()=>{
+          let weatherData = JSON.parse(str);
+          resolve(weatherData)
+        });
+        response.on('error', (err)=>{
+          reject(err);
+        });
+      })
+    })
+  }
+
+  // this is for getting the location
+  function getLatLon(){
+    return new Promise((resolve, reject)=>{
+    
+      https.get(urlLocationIQ, (response)=>{
+        data = '';
+        response.on('data', (chunk) => {
+          data += chunk;
+        });
+        response.on('end', ()=>{
+          resolve(JSON.parse(data));
+        })
+        response.on("error", (err) => {
+            reject(err);
+        });
+      })
+    })
+  }
+
+  getLatLon().then(location=>{
+    let lat = location[0].lat;
+    let lon = location[0].lon;
+    let cityName = location[0].display_name;
+    
+    getWeather(lat,lon).then(weatherData=>{
+      // console.log(timeConverter(weatherData.current.dt))
+      // console.log(weatherData.current)
+      // console.log(weatherData)
+      res.render('index.ejs',{
+        nameCity: cityName,
+        mainTemp: weatherData.current.temp,
+        mainDescription: weatherData.current.weather[0].description,
+        dailyWeather: weatherData.daily,
+      })
+    })
+
+  })
 })
 
-app.post('/', (req,res)=>{
+app.post('/getWeather', (req,res)=>{
   let cityLocationIQ = req.body.citySearch;
   let urlLocationIQ = "https://api.locationiq.com/v1/search.php?format=JSON&key="+apiKeyLocationIQ+"&q="+cityLocationIQ+"&limit=1";
 
@@ -98,7 +157,7 @@ function timeConverter(UNIX_timestamp){
     let hour = a.getHours();
     let min = a.getMinutes();
     let dayNum = a.getDay();
-    let time = days[dayNum] +' '+ month + ' ' + dat + ' ' + hour + ':' + min ;
+    let time = days[dayNum] +' '+ month + ' ' + date + ' ' + hour + ':' + min ;
     return time;
   }
       

@@ -5,18 +5,18 @@
     <div class="default-container">
         <div class="main-weather-container">
             <h1 class="city-name">
-                CityName
+                <%= nameCity %>
             </h1>
             <div class="temp-container">
                 <h2 class="main-temp">
-                    41°C
+                    <%= mainTemp %>°C
                 </h2>
                 <div class="main-img-container">
                     <img src="http://openweathermap.org/img/wn/10d@2x.png">
                 </div>
             </div>
             <div class="main-description">
-                Description
+                <%= mainDescription %>
             </div>
         </div>
     </div>
@@ -24,104 +24,22 @@
 
     <div class="default-container">
         <div class="daily-weather-wrap">
+            <% for(let i=0; i<7;i++ ){ %>
             <div class="daily-weather-container">
                 <h1 class="daily-date">
-                    Date
+                    
                 </h1>
                 <div class="daily-img-container">
                     <img src="http://openweathermap.org/img/wn/10d@2x.png" class="daily-weather-img">
                 </div>
                 <h2 class="daily-temp">
-                    41°C
+                    <%= dailyWeather[i].temp.day %>°C
                 </h2>
                 <div class="daily-description">
-                    Description
+                    <%= dailyWeather[i].weather[0].description %>
                 </div>
             </div>
-            <div class="daily-weather-container">
-                <h1 class="daily-date">
-                    Date
-                </h1>
-                <div class="daily-img-container">
-                    <img src="http://openweathermap.org/img/wn/10d@2x.png" class="daily-weather-img">
-                </div>
-                <h2 class="daily-temp">
-                    41°C
-                </h2>
-                <div class="daily-description">
-                    Description
-                </div>
-            </div>
-            <div class="daily-weather-container">
-                <h1 class="daily-date">
-                    Date
-                </h1>
-                <div class="daily-img-container">
-                    <img src="http://openweathermap.org/img/wn/10d@2x.png" class="daily-weather-img">
-                </div>
-                <h2 class="daily-temp">
-                    41°C
-                </h2>
-                <div class="daily-description">
-                    Description
-                </div>
-            </div>
-            <div class="daily-weather-container">
-                <h1 class="daily-date">
-                    Date
-                </h1>
-                <div class="daily-img-container">
-                    <img src="http://openweathermap.org/img/wn/10d@2x.png" class="daily-weather-img">
-                </div>
-                <h2 class="daily-temp">
-                    41°C
-                </h2>
-                <div class="daily-description">
-                    Description
-                </div>
-            </div>
-            <div class="daily-weather-container">
-                <h1 class="daily-date">
-                    Date
-                </h1>
-                <div class="daily-img-container">
-                    <img src="http://openweathermap.org/img/wn/10d@2x.png" class="daily-weather-img">
-                </div>
-                <h2 class="daily-temp">
-                    41°C
-                </h2>
-                <div class="daily-description">
-                    Description
-                </div>
-            </div>
-            <div class="daily-weather-container">
-                <h1 class="daily-date">
-                    Date
-                </h1>
-                <div class="daily-img-container">
-                    <img src="http://openweathermap.org/img/wn/10d@2x.png" class="daily-weather-img">
-                </div>
-                <h2 class="daily-temp">
-                    41°C
-                </h2>
-                <div class="daily-description">
-                    Description
-                </div>
-            </div>
-            <div class="daily-weather-container">
-                <h1 class="daily-date">
-                    Date
-                </h1>
-                <div class="daily-img-container">
-                    <img src="http://openweathermap.org/img/wn/10d@2x.png" class="daily-weather-img">
-                </div>
-                <h2 class="daily-temp">
-                    41°C
-                </h2>
-                <div class="daily-description">
-                    Description
-                </div>
-            </div>
+            <% }; %>
         </div>
         
     </div>
