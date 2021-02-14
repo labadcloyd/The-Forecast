@@ -75,6 +75,7 @@ app.get('/', (req,res)=>{
         mainTemp: weatherData.current.temp,
         mainDescription: weatherData.current.weather[0].description,
         dailyWeather: weatherData.daily,
+        mainImg: weatherData.current.weather[0].icon,
       })
     })
 
@@ -131,8 +132,13 @@ app.post('/getWeather', (req,res)=>{
     console.log(lat, lon, cityName)
     
     getWeather(lat,lon).then(weatherData=>{
-      console.log(timeConverter(weatherData.current.dt))
-      console.log(weatherData.current)
+      res.render('index.ejs',{
+        nameCity: cityName,
+        mainTemp: weatherData.current.temp,
+        mainDescription: weatherData.current.weather[0].description,
+        dailyWeather: weatherData.daily,
+        mainImg: weatherData.current.weather[0].icon,
+      })
     })
 
   })
