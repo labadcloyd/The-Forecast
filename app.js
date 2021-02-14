@@ -5,6 +5,7 @@ const https = require('https');
 const { static, response } = require('express');
 const { rejects } = require('assert');
 require('dotenv').config();
+const helper = require('./helper');
 
 
 app.use(bodyParser.urlencoded({extended:true}));
@@ -76,6 +77,7 @@ app.get('/', (req,res)=>{
         mainDescription: weatherData.current.weather[0].description,
         dailyWeather: weatherData.daily,
         mainImg: weatherData.current.weather[0].icon,
+        helper:helper
       })
     })
 
@@ -138,32 +140,13 @@ app.post('/getWeather', (req,res)=>{
         mainDescription: weatherData.current.weather[0].description,
         dailyWeather: weatherData.daily,
         mainImg: weatherData.current.weather[0].icon,
+        helper:helper
       })
     })
 
   })
   
-  
-
 
 })
 
-  
- 
-  
-  
-
-function timeConverter(UNIX_timestamp){
-    let a = new Date(UNIX_timestamp * 1000);
-    let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    let days = ['Sunday','Monday','Teusday','Wednesday','Thursday','Friday','Saturday'];
-    let year = a.getFullYear();
-    let month = months[a.getMonth()];
-    let date = a.getDate();
-    let hour = a.getHours();
-    let min = a.getMinutes();
-    let dayNum = a.getDay();
-    let time = days[dayNum] +' '+ month + ' ' + date + ' ' + hour + ':' + min ;
-    return time;
-  }
       

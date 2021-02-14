@@ -27,7 +27,7 @@
             <% for(let i=0; i<7;i++ ){ %>
             <div class="daily-weather-container">
                 <h1 class="daily-date">
-
+                    <%= helper.timeConverter(dailyWeather[i].dt) %>
                 </h1>
                 <div class="daily-img-container">
                     <img src="http://openweathermap.org/img/wn/<%= dailyWeather[i].weather[0].icon %>@2x.png" class="daily-weather-img">
