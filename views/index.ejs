@@ -9,7 +9,7 @@
             </h1>
             <div class="temp-container">
                 <h2 class="main-temp">
-                    <%= helper.sliceStr(mainTemp) %>°
+                    <%= helper.roundStr(mainTemp) %>°
                 </h2>
                 <div class="main-img-container">
                     <img src="http://openweathermap.org/img/wn/<%= mainImg %>@2x.png">
@@ -23,25 +23,37 @@
 
 
     <div class="default-container">
-        <div class="daily-weather-wrap">
-            <% for(let i=0; i<7;i++ ){ %>
-            <div class="daily-weather-container">
-                <h1 class="daily-date">
-                    <%= helper.timeConverter(dailyWeather[i].dt) %>
-                </h1>
-                <div class="daily-img-container">
-                    <img src="http://openweathermap.org/img/wn/<%= dailyWeather[i].weather[0].icon %>@2x.png" class="daily-weather-img">
+        <div class="daily-weather-padding">
+            <div class="daily-weather-wrap">
+                <% for(let i=0; i<7;i++ ){ %>
+                <div class="daily-weather-container">
+                    <h1 class="daily-date">
+                        <%= helper.timeConverter(dailyWeather[i].dt) %>
+                    </h1>
+                    
+                    <div class="daily-temp-container">
+                        <h2 class="daily-temp">
+                            <%= helper.roundStr(dailyWeather[i].temp.day) %>°
+                        </h2>
+                        <div class="daily-img-container">
+                            <img src="http://openweathermap.org/img/wn/<%= dailyWeather[i].weather[0].icon %>@2x.png" class="daily-weather-img">
+                        </div>
+                    </div>
+                    
+                    <div class="daily-description">
+                        <%= dailyWeather[i].weather[0].description %>
+                    </div>
                 </div>
-                <h2 class="daily-temp">
-                    <%= helper.sliceStr(dailyWeather[i].temp.day) %>°
-                </h2>
-                <div class="daily-description">
-                    <%= dailyWeather[i].weather[0].description %>
-                </div>
+                <% }; %>
             </div>
-            <% }; %>
         </div>
         
+    </div>
+    <div class="default-container">
+        <div class="hourly-wrapper">
+            <h2 class="hourly-title">Hourly Forecast</h2>
+            <hr class="line-break">
+        </div>
     </div>
     
 </div>

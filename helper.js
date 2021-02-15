@@ -9,12 +9,12 @@ function timeConverter(UNIX_timestamp){
     let time = days[dayNum] +' '+ month + ' ' + date;
     return time;
 }
-function sliceStr(str){
-    let slicedstr = str.toString();
-    return slicedstr.slice(0,-3);
+function roundStr(str){
+    let roundedstr = str.toString();
+    return Math.round(roundedstr);
 }
 
 module.exports = {
     timeConverter:timeConverter,
-    sliceStr:sliceStr
+    roundStr:roundStr
 }
