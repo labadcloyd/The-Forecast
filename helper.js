@@ -8,8 +8,13 @@ function timeConverter(UNIX_timestamp){
     let dayNum = a.getDay();
     let time = days[dayNum] +' '+ month + ' ' + date;
     return time;
-  }
+}
+function sliceStr(str){
+    let slicedstr = str.toString();
+    return slicedstr.slice(0,-3);
+}
 
-  module.exports = {
-      timeConverter:timeConverter
-  }
+module.exports = {
+    timeConverter:timeConverter,
+    sliceStr:sliceStr
+}

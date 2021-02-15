@@ -54,7 +54,7 @@ body {
     border: none;
     width: 100%;
     padding: 10px 10px 10px 20px;
-    background-color:#ffffff ;
+    background-color:rgb(255, 255, 255, 0.5);
     color: black;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -101,7 +101,8 @@ body {
 .main-weather-container{
     margin-top: 20px;
     padding: 40px;
-    background-color: #ffffff;
+    background: rgb(59,199,192);
+    background: linear-gradient(0deg, rgba(59,199,192,1) 0%, rgba(43,122,120,1) 96%);
     border-radius: 10px;
 }
 .temp-container{
@@ -119,17 +120,17 @@ body {
 .city-name{
     margin: 0px;
     font-size: 2rem;
-    color: #17252a;
+    color: #ffffff;
     font-weight: normal;
 }
 .main-temp{
     font-size: 4rem;
-    color: #17252a;
+    color: #ffffff;
     margin: 20px 0px 20px 0px;
 }
 .main-description{
     font-size: 2rem;
-    color: #17252a;
+    color: #ffffff;
 }
 
 
@@ -138,21 +139,19 @@ body {
     overflow-x: auto;
     display: grid;
     grid-template-columns: repeat(7, minmax(140px,1fr));
-    gap: 0rem;
+    gap: 1.3rem;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 10px;
 }
 .daily-weather-container{
-    border-radius: 10px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: start;
-}
-.daily-weather-container:hover{
-    background-color: #e2fdfb;
-    cursor: pointer;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.19);
 }
 .daily-date{
     font-size: 1.1rem;
@@ -170,7 +169,7 @@ body {
 .daily-img-container{
     height:60px;
     width:60px;
-    background-color:  #bddfdd;
+    background-color:  #cfe6e4;
     margin: 10px 0px 10px 0px;
     border-radius: 50%;
 }

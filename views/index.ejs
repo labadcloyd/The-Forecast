@@ -9,7 +9,7 @@
             </h1>
             <div class="temp-container">
                 <h2 class="main-temp">
-                    <%= mainTemp %>°C
+                    <%= helper.sliceStr(mainTemp) %>°
                 </h2>
                 <div class="main-img-container">
                     <img src="http://openweathermap.org/img/wn/<%= mainImg %>@2x.png">
@@ -33,7 +33,7 @@
                     <img src="http://openweathermap.org/img/wn/<%= dailyWeather[i].weather[0].icon %>@2x.png" class="daily-weather-img">
                 </div>
                 <h2 class="daily-temp">
-                    <%= dailyWeather[i].temp.day %>°C
+                    <%= helper.sliceStr(dailyWeather[i].temp.day) %>°
                 </h2>
                 <div class="daily-description">
                     <%= dailyWeather[i].weather[0].description %>
