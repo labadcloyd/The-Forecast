@@ -68,9 +68,6 @@ app.get('/', (req,res)=>{
     let cityName = location[0].display_name;
     
     getWeather(lat,lon).then(weatherData=>{
-      // console.log(timeConverter(weatherData.current.dt))
-      // console.log(weatherData.current)
-      // console.log(weatherData)
       res.render('index.ejs',{
         nameCity: cityName,
         mainTemp: weatherData.current.temp,
@@ -121,7 +118,7 @@ app.post('/getWeather', (req,res)=>{
           resolve(JSON.parse(data));
         })
         response.on("error", (err) => {
-            reject(err);
+          reject(err);
         });
       })
     })
@@ -131,7 +128,6 @@ app.post('/getWeather', (req,res)=>{
     let lat = location[0].lat;
     let lon = location[0].lon;
     let cityName = location[0].display_name;
-    console.log(lat, lon, cityName)
     
     getWeather(lat,lon).then(weatherData=>{
       res.render('index.ejs',{
@@ -144,9 +140,16 @@ app.post('/getWeather', (req,res)=>{
       })
     })
 
-  })
+  }).catch(error => res.render('error.ejs',{
+    errorMsg:'Error 404. Could not find location'
+  }))
   
 
 })
 
-      
+// ERROR HANDLING
+app.use((req, res, next) => {
+  res.status(404).render('error.ejs',{
+    errorMsg: 'Error 404. Wrong URL entered'
+  });
+});
