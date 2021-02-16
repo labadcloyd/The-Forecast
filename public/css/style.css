@@ -46,18 +46,25 @@ body {
 }
 .title{
     font-size: 1.5rem;
-    padding: 10px;
     font-weight: bold;
     color: white;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 0.1rem;
-    min-width: 190px;
+    min-width: 230px;
+    height: 35px;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.site-logo{
+    height: 100%;
+    width: auto;
 }
 .searchContainer{
     max-width: 700px;
     width: 100%;
-    transition: .5s;
 }
 #search-form{
     width: 100%;
@@ -269,37 +276,10 @@ body {
     .default-container{
         padding: 20px 10px 20px 10px;
     }
-
-
-    /* FOR HAMBURGER MENU */
-    #nav-check:checked ~ .hamburger{
-        background-color: #2b7a78;
-    }
-    #nav-check:checked ~ .searchContainer{
-        position: fixed;
-        display: flex;
-        flex-direction: column;
-        top: 79px;
-        right: 0px;
-    }
-    #nav-check:not(:checked) ~ .searchContainer{
+    .site-title{
         display: none;
     }
-    .searchContainer a{
-        padding: 25px 45px 25px 45px;
-    }
-    .hamburger {
-        padding: 13px 10px 6px 10px;
-        border-radius: 10px;
-        cursor: pointer;
-    }
-    .hamburger:hover{
-        background-color: #2b7a78;
-    }
-    .hamburger span {
-        display: block;
-        width: 25px;
-        height: 8px;
-        border-top: 2px solid #eee;
+    .title{
+        min-width: 45px;
     }
 }  
