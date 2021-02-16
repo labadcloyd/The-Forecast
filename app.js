@@ -26,7 +26,7 @@ app.get('/', (req,res)=>{
   // This is for getting the weather API 
   function getWeather(lat,lon){
     return new Promise((resolve, reject)=>{
-      let urlWeather = 'https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&exclude=alerts,minutely,hourly&units=metric&appid='+apiKeyWeather;
+      let urlWeather = 'https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&exclude=alerts,minutely&units=metric&appid='+apiKeyWeather;
       https.get(urlWeather, (response)=>{
         let str = '';
         response.on("data",(chunk)=>{
@@ -74,6 +74,7 @@ app.get('/', (req,res)=>{
         mainDescription: weatherData.current.weather[0].description,
         dailyWeather: weatherData.daily,
         mainImg: weatherData.current.weather[0].icon,
+        hourlyWeather: weatherData.hourly,
         helper:helper
       })
     })
@@ -88,7 +89,7 @@ app.post('/getWeather', (req,res)=>{
   // This is for getting the weather API 
   function getWeather(lat,lon){
     return new Promise((resolve, reject)=>{
-      let urlWeather = 'https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&exclude=alerts,minutely,hourly&units=metric&appid='+apiKeyWeather;
+      let urlWeather = 'https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&exclude=alerts,minutely&units=metric&appid='+apiKeyWeather;
       https.get(urlWeather, (response)=>{
         let str = '';
         response.on("data",(chunk)=>{
@@ -136,6 +137,7 @@ app.post('/getWeather', (req,res)=>{
         mainDescription: weatherData.current.weather[0].description,
         dailyWeather: weatherData.daily,
         mainImg: weatherData.current.weather[0].icon,
+        hourlyWeather: weatherData.hourly,
         helper:helper
       })
     })
