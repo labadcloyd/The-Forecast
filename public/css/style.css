@@ -18,7 +18,7 @@ html {
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
-    min-width: 350px;
+    min-width: 300px;
     box-sizing: border-box;
 }
 body {
@@ -57,6 +57,7 @@ body {
 .searchContainer{
     max-width: 700px;
     width: 100%;
+    transition: .5s;
 }
 #search-form{
     width: 100%;
@@ -69,7 +70,7 @@ body {
     border: none;
     width: 100%;
     padding: 10px 10px 10px 20px;
-    background-color:rgb(255, 255, 255, 0.5);
+    background-color:#9dd7d4;
     color: black;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -96,7 +97,10 @@ body {
 .search:hover{
     background-color: #00635e;
 }
-
+#nav-check{
+    position: absolute;
+    visibility: hidden;
+}
 
 /* WRAPPER */
 .wrapper{
@@ -226,7 +230,7 @@ body {
 }
 .hourly-container{
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr 1.2fr;
     align-items: center;
 }
 .hourly-content-container{
@@ -237,3 +241,65 @@ body {
     gap: 20px;
     padding: 0px 20px 0px 20px;
 }
+.hourly-description{
+    padding: 0px 0px 0px 10px;
+}
+
+/* FOR RESPONSIVENESS */
+@media only screen and (max-width: 800px) {
+    .hourly-container{
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+    .hourly-wind{
+        display: none;
+    }
+}  
+@media only screen and (max-width: 630px) {
+    .hourly-description{
+        display: none;
+    }
+    .hourly-forecast-container{
+        grid-template-columns: 1fr 1fr;
+        padding: 0px 0px 0px 10px;
+    }
+    .hourly-content-container{
+        gap: 10px;
+        padding: 0px 0px 0px 10px;
+    }
+    .default-container{
+        padding: 20px 10px 20px 10px;
+    }
+
+
+    /* FOR HAMBURGER MENU */
+    #nav-check:checked ~ .hamburger{
+        background-color: #2b7a78;
+    }
+    #nav-check:checked ~ .searchContainer{
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        top: 79px;
+        right: 0px;
+    }
+    #nav-check:not(:checked) ~ .searchContainer{
+        display: none;
+    }
+    .searchContainer a{
+        padding: 25px 45px 25px 45px;
+    }
+    .hamburger {
+        padding: 13px 10px 6px 10px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    .hamburger:hover{
+        background-color: #2b7a78;
+    }
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 8px;
+        border-top: 2px solid #eee;
+    }
+}  
