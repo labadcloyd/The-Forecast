@@ -48,8 +48,6 @@ body {
     font-size: 1.5rem;
     font-weight: bold;
     color: white;
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: 0.1rem;
     min-width: 230px;
     height: 35px;
     text-decoration: none;
@@ -70,45 +68,33 @@ body {
     width: 100%;
     display: flex;
     flex-direction: row;
-    
 }
 .searchbar {
-    position: relative;
     border: none;
     width: 100%;
     padding: 10px 10px 10px 20px;
     background-color:#9dd7d4;
-    color: black;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-}
-.searchbar::placeholder{
-    color: black;
+    border-radius: 20px 0px 0px 20px;
+    font-family: 'Montserrat', sans-serif;
 }
 .searchbar:focus{
     outline: none;
 }
 .search {
     border: none;
-    width: 100px;
+    width: 80px;
     padding: 5px;
     background-color: #2b7a78;
     color: white;
     cursor: pointer;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 0px 20px 20px 0px;
 }
 .search:hover{
     background-color: #00635e;
 }
-#nav-check{
-    position: absolute;
-    visibility: hidden;
-}
-
 /* WRAPPER */
 .wrapper{
     max-width: 1200px;
@@ -127,9 +113,9 @@ body {
 .main-weather-container{
     margin-top: 20px;
     padding: 40px;
-    background: rgb(59,199,192);
     background: linear-gradient(0deg, rgba(59,199,192,1) 0%, rgba(43,122,120,1) 96%);
     border-radius: 10px;
+    color: #ffffff;
 }
 .temp-container{
     display: flex;
@@ -146,26 +132,20 @@ body {
 .city-name{
     margin: 0px;
     font-size: 2rem;
-    color: #ffffff;
     font-weight: normal;
 }
 .main-temp{
     font-size: 4rem;
-    color: #ffffff;
     margin: 20px 0px 20px 0px;
 }
 .main-description{
     font-size: 2rem;
-    color: #ffffff;
 }
-
-
 /* THIS IS FOR THE DAILY WEATHER  */
 .daily-weather-wrap{
     overflow-x: auto;
     display: grid;
     grid-template-columns: repeat(7, minmax(160px,1fr));
-    gap: 0rem;
     margin: 10px;
     padding: 10px; 
     box-sizing: border-box;
