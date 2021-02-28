@@ -26,9 +26,10 @@ body {
     background-color: #e1ecec;
     box-sizing: border-box;
 }
-
+a{
+    text-decoration: none;
+}
 /* THIS IS FOR THE HEADER PART */
-
 .header {
     background-color: #3aafa9;
 }
@@ -50,7 +51,6 @@ body {
     color: white;
     min-width: 230px;
     height: 35px;
-    text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -109,7 +109,6 @@ body {
     padding: 20px;
 }
 /* THIS IS FOR THE MAIN WEATHER */
-
 .main-weather-container{
     margin-top: 20px;
     padding: 40px;
@@ -193,7 +192,6 @@ body {
     margin: 10px 0px 10px 0px;
     border-radius: 50%;
 }
-
 /* THIS IS FOR THE HOURLY WEATHER */
 .hourly-wrapper{
     background-color: #ffffff;
@@ -231,7 +229,27 @@ body {
 .hourly-description{
     padding: 0px 0px 0px 10px;
 }
-
+/* FOR FOOTER */
+.footer-bar{
+    background-color: #00635e;
+}
+.footer-wrapper{
+    color: white;
+    display: flex;
+    flex-direction: column; 
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.title.footer{
+    justify-content: center;
+}
+.credits{
+    display: flex;
+    flex-direction: column;align-items: center;
+    gap: 10px;
+}
 /* FOR RESPONSIVENESS */
 @media only screen and (max-width: 800px) {
     .hourly-container{
@@ -256,7 +274,7 @@ body {
     .default-container{
         padding: 20px 10px 20px 10px;
     }
-    .site-title{
+    .site-title.main{
         display: none;
     }
     .title{
