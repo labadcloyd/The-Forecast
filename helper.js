@@ -23,9 +23,13 @@ function roundStr(str){
     let roundedstr = str.toString();
     return Math.round(roundedstr);
 }
-
+function yearGetter(){
+    let a = new Date();
+    return a.getFullYear();
+}
 module.exports = {
     dateGetter:dateGetter,
     roundStr:roundStr,
-    hourGetter: hourGetter
+    hourGetter: hourGetter,
+    yearGetter: yearGetter
 }

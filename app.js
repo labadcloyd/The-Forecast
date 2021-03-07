@@ -12,18 +12,41 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('public'))
 app.set('view engine', 'ejs');
 
+
 let apiKeyLocationIQ = process.env.API_KEY_LOCATIONIQ;
 let apiKeyWeather = process.env.API_KEY_WEATHER;
+
 
 app.listen(process.env.PORT || 3000, ()=>{
   console.log("server is running on port 3000")
 })
 
+
 app.get('/', (req,res)=>{
   let cityLocationIQ = 'chicago';
   let urlLocationIQ = "https://api.locationiq.com/v1/search.php?format=JSON&key="+apiKeyLocationIQ+"&q="+cityLocationIQ+"&limit=1";
+  
+  ///////////////////////////// this is for getting the location
+  function getLatLon(){
+    return new Promise((resolve, reject)=>{
+    
+      https.get(urlLocationIQ, (response)=>{
+        data = '';
+        response.on('data', (chunk) => {
+          data += chunk;
+        });
+        response.on('end', ()=>{
+          resolve(JSON.parse(data));
+        })
+        response.on("error", (err) => {
+            reject(err);
+        });
+      })
+    })
+  }
 
-  // This is for getting the weather API 
+
+  ///////////////////////////// This is for getting the weather API 
   function getWeather(lat,lon){
     return new Promise((resolve, reject)=>{
       let urlWeather = 'https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&exclude=alerts,minutely&units=metric&appid='+apiKeyWeather;
@@ -43,24 +66,6 @@ app.get('/', (req,res)=>{
     })
   }
 
-  // this is for getting the location
-  function getLatLon(){
-    return new Promise((resolve, reject)=>{
-    
-      https.get(urlLocationIQ, (response)=>{
-        data = '';
-        response.on('data', (chunk) => {
-          data += chunk;
-        });
-        response.on('end', ()=>{
-          resolve(JSON.parse(data));
-        })
-        response.on("error", (err) => {
-            reject(err);
-        });
-      })
-    })
-  }
 
   getLatLon().then(location=>{
     let lat = location[0].lat;
@@ -82,11 +87,33 @@ app.get('/', (req,res)=>{
   })
 })
 
+
+
 app.post('/getWeather', (req,res)=>{
   let cityLocationIQ = req.body.citySearch;
   let urlLocationIQ = "https://api.locationiq.com/v1/search.php?format=JSON&key="+apiKeyLocationIQ+"&q="+cityLocationIQ+"&limit=1";
 
-  // This is for getting the weather API 
+  ///////////////////////////// this is for getting the location
+  function getLatLon(){
+    return new Promise((resolve, reject)=>{
+    
+      https.get(urlLocationIQ, (response)=>{
+        data = '';
+        response.on('data', (chunk) => {
+          data += chunk;
+        });
+        response.on('end', ()=>{
+          resolve(JSON.parse(data));
+        })
+        response.on("error", (err) => {
+          reject(err);
+        });
+      })
+    })
+  }
+
+
+  ///////////////////////////// This is for getting the weather API 
   function getWeather(lat,lon){
     return new Promise((resolve, reject)=>{
       let urlWeather = 'https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&exclude=alerts,minutely&units=metric&appid='+apiKeyWeather;
@@ -106,24 +133,6 @@ app.post('/getWeather', (req,res)=>{
     })
   }
 
-  // this is for getting the location
-  function getLatLon(){
-    return new Promise((resolve, reject)=>{
-    
-      https.get(urlLocationIQ, (response)=>{
-        data = '';
-        response.on('data', (chunk) => {
-          data += chunk;
-        });
-        response.on('end', ()=>{
-          resolve(JSON.parse(data));
-        })
-        response.on("error", (err) => {
-          reject(err);
-        });
-      })
-    })
-  }
 
   getLatLon().then(location=>{
     let lat = location[0].lat;
