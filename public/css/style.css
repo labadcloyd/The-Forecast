@@ -256,7 +256,7 @@ a{
     }
 }  
 @media only screen and (max-width: 630px) {
-    .hourly-description.site-title.main{
+    .hourly-description{
         display: none;
     }
     .hourly-forecast-container{
@@ -269,6 +269,9 @@ a{
     }
     .default-container{
         padding: 20px 10px 20px 10px;
+    }
+    .site-title.main{
+        display: none;
     }
     .title{
         min-width: 45px;
