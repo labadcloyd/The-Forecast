@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #2b7a78;
+  border-radius: 15px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1a9c96;
+}
+::-webkit-scrollbar-track {
+  background: #c7e3e1;
+  border-radius: 15px;
+  box-shadow: inset 7px 10px 12px #f0f0f0;
+}
+html {
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  min-width: 300px;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background-color: #e1ecec;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+/*HEADER PART*/
+.header {
+  background-color: #3aafa9;
+}
+.header-container {
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  min-width: 230px;
+  height: 35px;
+  display: flex;
+  place-items: center;
+  gap: 10px;
+}
+.site-logo {
+  height: 100%;
+  width: auto;
+}
+.searchContainer {
+  max-width: 700px;
+  width: 100%;
+}
+#search-form {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.searchbar {
+  border: none;
+  width: 100%;
+  padding: 10px 10px 10px 20px;
+  background-color: #9dd7d4;
+  border-radius: 20px 0px 0px 20px;
+  font-family: "Montserrat", sans-serif;
+}
+.searchbar:focus {
+  outline: none;
+}
+.search {
+  border: none;
+  width: 80px;
+  padding: 5px;
+  background-color: #2b7a78;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px 20px 20px 0px;
+}
+.search:hover {
+  background-color: #00635e;
+}
+.search:focus {
+  outline: none;
+}
+/*WRAPPER*/
+.wrapper {
+  max-width: 1200px;
+  box-sizing: border-box;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+.default-container {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px;
+}
+/*MAIN WEATHER*/
+
+/* THIS IS FOR THE DAILY WEATHER  */
+.daily-weather-wrap {
+  overflow-x: auto;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(160px, 1fr));
+  margin: 20px 20px 10px 20px;
+  padding: 0px 0px 10px 0px;
+}
+.daily-weather-padding {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 1px 0px 1px 0px;
+}
+.daily-weather-container {
+  padding: 20px 0px 20px 20px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  border-right: 1px solid rgb(0, 0, 0, 0.1);
+  border-left: 1px solid rgb(0, 0, 0, 0.1);
+}
+.daily-date {
+  font-size: 1.1rem;
+  margin: 0px 0px 5px 0px;
+  font-weight: normal;
+}
+.daily-temp {
+  font-size: 1.8rem;
+  margin: 0px 0px 5px 0px;
+}
+.daily-temp-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.daily-weather-img {
+  width: 100%;
+  height: auto;
+}
+.daily-img-container {
+  height: 60px;
+  width: 60px;
+  background-color: #cfe6e4;
+  margin: 10px 0px 10px 0px;
+  border-radius: 50%;
+}
+/*HOURLY WEATHER*/
+.hourly-wrapper {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+}
+.hourly-title {
+  font-size: 1.5rem;
+  margin: 0px 0px 20px 0px;
+}
+.line-break {
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+.hourly-forecast-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr;
+  align-items: center;
+}
+.hourly-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1.2fr;
+  align-items: center;
+}
+.hourly-content-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  padding: 0px 20px 0px 20px;
+}
+.hourly-description {
+  padding: 0px 0px 0px 10px;
+}
+/* FOR FOOTER */
+.footer-bar {
+  background-color: #00635e;
+}
+.footer-wrapper {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  place-items: center;
+  gap: 10px;
+}
+.title.footer {
+  justify-content: center;
+}
+.credits {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.credits a {
+  text-decoration: none;
+  color: white;
+}
+/*FOR RESPONSIVENESS*/
+@media only screen and (max-width: 800px) {
+  .hourly-container {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+  .hourly-wind {
+    display: none;
+  }
+}
+@media only screen and (max-width: 630px) {
+  .hourly-description {
+    display: none;
+  }
+  .hourly-forecast-container {
+    grid-template-columns: 1fr 1fr;
+    padding: 0px 0px 0px 10px;
+  }
+  .hourly-content-container {
+    gap: 10px;
+    padding: 0px 0px 0px 10px;
+  }
+  .default-container {
+    padding: 20px 10px 20px 10px;
+  }
+  .site-title.main {
+    display: none;
+  }
+  .title {
+    min-width: 45px;
+  }
+}

@@ -2,18 +2,22 @@
   "name": "weather-forecast-app",
   "version": "1.0.0",
   "description": "A simple Weather Forecast app",
-  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node app.js"
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js"
   },
-  "author": "Cloyd Abad",
-  "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
-    "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "request": "^2.88.2"
-  }
+    "next": "10.0.9",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "main": "server.js",
+  "devDependencies": {},
+  "author": "Cloyd Abad",
+  "license": "ISC"
 }
