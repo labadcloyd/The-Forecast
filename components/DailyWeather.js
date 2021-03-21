@@ -17,6 +17,15 @@ function DailyWeather(props){
             <div className={"daily-description"}>
                 {props.description}
             </div>
+            <div className={"daily-description"}>
+                <span class="material-icons">air</span>
+                <div> {props.airspeed} m/s</div>
+            </div>
+            
+            <div className={"daily-description"}>
+                <span class="material-icons">filter_drama</span>
+                <div class="hourly-cloud"> {props.cloud}% </div>
+            </div>
         </div>
     )
 }

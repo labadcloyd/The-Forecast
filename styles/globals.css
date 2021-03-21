@@ -151,7 +151,7 @@ a {
 .daily-weather-wrap {
   overflow-x: auto;
   display: grid;
-  grid-template-columns: repeat(7, minmax(160px, 1fr));
+  grid-template-columns: repeat(7, minmax(186.7px, 1fr));
   margin: 20px 20px 10px 20px;
   padding: 0px 0px 10px 0px;
 }
@@ -170,9 +170,9 @@ a {
   border-left: 1px solid rgb(0, 0, 0, 0.1);
 }
 .daily-date {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin: 0px 0px 5px 0px;
-  font-weight: normal;
+  font-weight: bold;
 }
 .daily-temp {
   font-size: 1.8rem;
@@ -195,6 +195,11 @@ a {
   background-color: #cfe6e4;
   margin: 10px 0px 10px 0px;
   border-radius: 50%;
+}
+.daily-description {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 /*HOURLY WEATHER*/
 .hourly-wrapper {
