@@ -4,6 +4,7 @@ import MainWeather from '../../components/MainWeather'
 import DailyWeather from '../../components/DailyWeather'
 import HourlyWeather from '../../components/HourlyWeather'
 import Navbar from '../../components/Navbar'
+import Footerbar from '../../components/Footerbar'
 
 export default function Weather({ weatherData, cityName }) {
   // DECONSTRUCTURED API DATA
@@ -60,6 +61,7 @@ export default function Weather({ weatherData, cityName }) {
           </div>
         </div>
       </div>
+      <Footerbar />
     </body>
   )
 }
