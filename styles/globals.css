@@ -61,7 +61,7 @@ a {
   place-items: center;
   gap: 10px;
 }
-.searchContainer {
+.search-container {
   max-width: 700px;
   width: 100%;
 }
@@ -299,4 +299,11 @@ a {
 }
 .material-icons {
   color: #000000;
+}
+/* HOME */
+.home {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("../public/homeWallpaper.jpg");
+  height: 100vh;
+  background-size: cover;
 }
