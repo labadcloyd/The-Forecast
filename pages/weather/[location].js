@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import Head from 'next/head';
 import MainWeather from '../../components/MainWeather'
 import DailyWeather from '../../components/DailyWeather'
 import HourlyWeather from '../../components/HourlyWeather'
@@ -32,6 +33,14 @@ export default function Weather({ weatherData, cityName }) {
   }
   return (
     <body>
+      <Head>
+        <title>The Forecast - {cityName}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="utf-8" />
+        <meta name="description" content={`Forecast for ${cityName}`} />
+        <meta property="og:title" content={`The Forecast - ${cityName}`} key="ogtitle" />
++       <meta property="og:description" content={`Forecast for ${cityName}`} key="ogdesc" />
+      </Head>    
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
       <Navbar />
       <div className={"wrapper"}>
