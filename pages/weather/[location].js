@@ -106,8 +106,12 @@ export async function getServerSideProps(context) {
       }
     }
   }catch (error){
-    console.log( error);
-    throw error;
+    return {
+      redirect: {
+        destination: '/error404',
+        permanent: false,
+      }
+    }
   }
   
 }
