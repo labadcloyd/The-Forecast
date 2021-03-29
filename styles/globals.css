@@ -26,6 +26,8 @@ body {
   margin: 0;
   background-color: #e1ecec;
   box-sizing: border-box;
+  min-height: 100vh;
+  height: 100;
 }
 a {
   text-decoration: none;
@@ -166,7 +168,7 @@ a {
   gap: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   border-right: 1px solid rgb(0, 0, 0, 0.1);
   border-left: 1px solid rgb(0, 0, 0, 0.1);
 }
