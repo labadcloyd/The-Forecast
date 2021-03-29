@@ -3,14 +3,17 @@ import Image from 'next/image'
 import { useState } from 'react';
 
 export default function Home() {
+  // FOR THE INPUT VALUE
   const [inputValue, setInput] = useState('')
   const locationUrl = `/weather/${inputValue}`;
   function handleChange(event){
     setInput(event.target.value)
   }
+  // FOR THE COPYRIGHT YEAR
   let currentYear = new Date().getFullYear();
   return (
     <div className={'home'} style={{display:'flex',justifyContent:'center', alignItems:'center', flexDirection:'column', gap:'3rem'}}>
+      {/* FOR SEO */}
       <Head>
         <title>The Forecast</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,8 +21,8 @@ export default function Home() {
       </Head>     
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
       <a href="/" className="title" style={{margin:'-60px 20px 0px 20px'}}>
-          <Image src={"/../public/site-logo.png"} alt="" className={"site-logo"}  width={'70px'} height={'70px'}/>
-          <div  class={"site-title main"} style={{color:'white', fontSize:'3rem'}}>The Forecast</div> 
+          <Image src={`/../public/site-logo.png`} alt="" className={"site-logo"}  width={'70px'} height={'70px'}/>
+          <div  className={"site-title main"} style={{color:'white', fontSize:'3rem'}}>The Forecast</div> 
       </a>
       <div className={"search-container"} >
         <form method='POST' action={locationUrl} style={{display:'flex', flexDirection:'row', margin:'0px 20px 0px 20px'}}>
@@ -27,7 +30,7 @@ export default function Home() {
           <button type='submit' className={"search"} style={{backgroundColor:'rgba(0,0,0,0.2)', backdropFilter:'blur(10px)'}}><span className={"material-icons"} style={{color:'white'}}>search</span></button>
         </form>
       </div>
-      <div class="credits" style={{color:'white', position:'absolute', bottom:'20px'}}>
+      <div className="credits" style={{color:'white', position:'absolute', bottom:'20px'}}>
           <span>© {currentYear} Code and Design by: <a href="https://github.com/labadcloyd">Cloyd Abad</a></span>
           <span>
               Site powered by 

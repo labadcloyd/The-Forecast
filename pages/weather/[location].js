@@ -33,6 +33,7 @@ export default function Weather({ weatherData, cityName }) {
   }
   return (
     <body>
+      {/* FOR SEO */}
       <Head>
         <title>The Forecast - {cityName}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -44,8 +45,9 @@ export default function Weather({ weatherData, cityName }) {
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
       <Navbar />
       <div className={"wrapper"}>
-      {/* DAILY WEATHER */}
+        {/* MAIN WEATHER */}
         <MainWeather cityName={cityName} temp={temp} icon={weather[0].icon} description={weather[0].description} />
+        {/* DAILY WEATHER */}
         <div className={"default-container"}>
             <div className={"daily-weather-padding"}>
                 <div className={"daily-weather-wrap"}>

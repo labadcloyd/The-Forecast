@@ -6,7 +6,7 @@ function Footerbar(){
             <div class="wrapper">
                 <div class="footer-wrapper">
                     <a href="/" class="title footer">
-                        <Image src={"/../public/site-logo2.png"} alt="" className={"site-logo"}  width={'35px'} height={'35px'}/>
+                        <Image src={`/../public/site-logo2.png`} alt="" className={"site-logo"}  width={'35px'} height={'35px'}/>
                         <div class="site-title footer">The Forecast</div> 
                     </a>
                     <div class="credits">
