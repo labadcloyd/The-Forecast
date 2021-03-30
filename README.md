@@ -1,6 +1,6 @@
 # The Forecast
 
-React application to explore the wonders of space and learn information about how NASA gathers data through interactive layers.
+React/Next application that shows the hourly, daily, and the current forecast for any location in the world.
 
 [The Forecast](theforecast101.herokuapp.com/)
 
