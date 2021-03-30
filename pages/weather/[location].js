@@ -16,7 +16,7 @@ export default function Weather({ weatherData, cityName }) {
   function dateGetter(UNIX_timestamp) {
     let a = new Date(UNIX_timestamp * 1000);
     let months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-    let days = ["Sun,", "Mon,", "Teu,", "Wed,", "Thu,", "Fri,", "Sat,"];
+    let days = ["Sun,", "Mon,", "Tue,", "Wed,", "Thu,", "Fri,", "Sat,"];
     let month = months[a.getMonth()];
     let date = a.getDate();
     let time = days[a.getDay()] + " " + month + " " + date;

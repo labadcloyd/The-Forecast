@@ -8,7 +8,7 @@ function MainWeather(props){
                 </h1>
                 <div className={"temp-container"}>
                     <h2 className={"main-temp"}>
-                        {temp}°
+                        {temp}°C
                     </h2>
                     <div className={"main-img-container"}>
                         <img src={`http://openweathermap.org/img/wn/${props.icon}@2x.png`} />

@@ -4,7 +4,7 @@ function HourlyWeather(props) {
       <div className={"hourly-container"}>
         <div className={"hourly-time"}>{props.hour}</div>
         <div className={"hourly-forecast-container"}>
-          <h2 className={"hourly-temp"}>{props.temp}°</h2>
+          <h2 className={"hourly-temp"}>{props.temp}°C</h2>
           <div className={"daily-img-container"}>
             <img
               src={`http://openweathermap.org/img/wn/${props.icon}@2x.png`}
